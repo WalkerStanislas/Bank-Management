@@ -19,6 +19,7 @@ public class SecurityConfig {
                 .anyRequest().permitAll() // 🔥 Autorise tout sans authentification
             )
             .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+        http.headers(headers -> headers.frameOptions(frameOptions -> frameOptions.disable()));
         return http.build();
     }
 }
